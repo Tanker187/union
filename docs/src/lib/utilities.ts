@@ -5,9 +5,7 @@ export const graphqlQueryToCurl = ({ url, query }: { url: string; query: string 
     curl --request POST \\
       --url '${url}' \\
       --header 'Content-Type: application/json' \\
-      --data '{ "query": "\\n
-            ${query.replace(/"/g, "\\\"")}"
-      }'
+      --data '${JSON.stringify({ query })}'
   `
 
 // split array into n parts
